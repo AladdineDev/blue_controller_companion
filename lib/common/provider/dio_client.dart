@@ -1,5 +1,5 @@
 import 'package:blue_controller_companion/env/env.dart';
-import 'package:blue_controller_companion/features/login/data/repository/jwt_repository.dart';
+import 'package:blue_controller_companion/features/auth/data/repository/jwt_repository.dart';
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
