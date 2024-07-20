@@ -13,7 +13,7 @@ class App extends ConsumerWidget {
       routerConfig: ref.watch(routerProvider),
       theme: themes.lightTheme,
       darkTheme: themes.darkTheme,
-      themeMode: ThemeMode.system,
+      themeMode: ThemeMode.dark,
     );
   }
 }
