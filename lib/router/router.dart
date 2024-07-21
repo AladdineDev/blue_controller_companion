@@ -1,4 +1,4 @@
-import 'package:blue_controller_companion/features/controller/presentation/controller_list_screen.dart';
+import 'package:blue_controller_companion/features/controller/presentation/controller_screen.dart';
 import 'package:blue_controller_companion/features/auth/presentation/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -10,7 +10,7 @@ part 'router.g.dart';
 GoRouter router(RouterRef ref) {
   return GoRouter(
     routes: $appRoutes,
-    initialLocation: '/login',
+    initialLocation: '/controller',
     // redirect: (context, state) async {
     // TODO: Implement redirect
     //   final authRepository = ref.watch(authRepositoryProvider);
@@ -40,15 +40,15 @@ class LoginScreenRoute extends GoRouteData {
   }
 }
 
-@TypedGoRoute<ControllerListScreenRoute>(
-  path: '/controllers',
+@TypedGoRoute<ControllerScreenRoute>(
+  path: '/controller',
 )
 @immutable
-class ControllerListScreenRoute extends GoRouteData {
-  const ControllerListScreenRoute();
+class ControllerScreenRoute extends GoRouteData {
+  const ControllerScreenRoute();
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const ControllerListScreen();
+    return const ControllerScreen();
   }
 }

@@ -79,7 +79,7 @@ class LoginScreen extends HookConsumerWidget {
     try {
       await ref.read(authRepositoryProvider).signIn(loginInput: loginInput);
       if (!context.mounted) return;
-      const ControllerListScreenRoute().go(context);
+      const ControllerScreenRoute().go(context);
     } catch (e) {
       if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
