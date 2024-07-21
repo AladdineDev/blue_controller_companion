@@ -10,7 +10,7 @@ part 'router.g.dart';
 GoRouter router(RouterRef ref) {
   return GoRouter(
     routes: $appRoutes,
-    initialLocation: '/controller',
+    initialLocation: '/login',
     // redirect: (context, state) async {
     // TODO: Implement redirect
     //   final authRepository = ref.watch(authRepositoryProvider);

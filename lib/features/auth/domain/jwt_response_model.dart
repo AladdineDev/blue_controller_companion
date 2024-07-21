@@ -1,4 +1,4 @@
-import 'package:blue_controller_companion/features/auth/domain/jwt_payload_model.dart';
+import 'package:blue_controller_companion/features/auth/domain/user_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 
@@ -9,7 +9,7 @@ part 'jwt_response_model.g.dart';
 class JwtResponseModel with _$JwtResponseModel {
   factory JwtResponseModel({
     required String? jwt,
-    required JwtPayloadModel? data,
+    required UserModel? data,
   }) = _JwtResponseModel;
 
   factory JwtResponseModel.fromJson(Map<String, dynamic> json) =>

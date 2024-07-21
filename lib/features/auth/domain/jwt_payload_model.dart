@@ -1,3 +1,4 @@
+import 'package:blue_controller_companion/features/auth/domain/user_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 
@@ -7,10 +8,7 @@ part 'jwt_payload_model.g.dart';
 @freezed
 class JwtPayloadModel with _$JwtPayloadModel {
   factory JwtPayloadModel({
-    required String? id,
-    required String? email,
-    required int? iat,
-    required int? exp,
+    required UserModel? user,
   }) = _JwtPayloadModel;
 
   factory JwtPayloadModel.fromJson(Map<String, dynamic> json) =>

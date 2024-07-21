@@ -1,6 +1,6 @@
 // ignore_for_file: constant_identifier_names
 
-enum ControllerButton {
+enum ButtonType {
   CROSS(command: 0x1),
   CIRCLE(command: 0x2),
   SQUARE(command: 0x3),
@@ -18,7 +18,7 @@ enum ControllerButton {
   HAT_LEFT(command: 0xf),
   HAT_RIGHT(command: 0x10);
 
-  const ControllerButton({required this.command});
+  const ButtonType({required this.command});
 
   final int command;
 }

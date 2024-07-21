@@ -21,7 +21,7 @@ abstract class RemoteAuthDataSource {
   Future<UserModel> createUser(@Body() UserCredentialModel userCredentialModel);
 
   @GET("/user/{id}")
-  Future<UserModel> getUser(@Path("id") String id);
+  Future<UserModel> readUser(@Path("id") String id);
 
   @PATCH("/user")
   Future<UserModel> updateUser(@Body() Map<String, dynamic> updates);

@@ -20,7 +20,7 @@ class MyLoginElevatedButton extends ConsumerWidget {
         textStyle: Theme.of(context).textTheme.labelLarge?.copyWith(
               fontWeight: FontWeight.bold,
             ),
-        backgroundColor: Theme.of(context).colorScheme.background,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         foregroundColor: Theme.of(context).colorScheme.primary,
         elevation: 10,
       ),

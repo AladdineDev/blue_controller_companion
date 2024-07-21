@@ -24,10 +24,10 @@ class ControllerScreen extends StatelessWidget {
           mainAxisSpacing: 8.0,
           crossAxisSpacing: 8.0,
         ),
-        itemCount: ControllerButton.values.length,
+        itemCount: ButtonType.values.length,
         itemBuilder: (context, index) {
           return ButtonMappingWidget(
-            button: ControllerButton.values[index],
+            button: ButtonType.values[index],
           );
         },
       ),

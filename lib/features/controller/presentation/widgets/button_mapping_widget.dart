@@ -3,7 +3,7 @@ import 'package:blue_controller_companion/extensions/build_context_extension.dar
 import 'package:flutter/material.dart';
 
 class ButtonMappingWidget extends StatefulWidget {
-  final ControllerButton button;
+  final ButtonType button;
 
   const ButtonMappingWidget({super.key, required this.button});
 
@@ -12,7 +12,7 @@ class ButtonMappingWidget extends StatefulWidget {
 }
 
 class _ButtonMappingWidgetState extends State<ButtonMappingWidget> {
-  ControllerButton? selectedAction;
+  ButtonType? selectedButtonType;
 
   @override
   Widget build(BuildContext context) {
@@ -29,10 +29,10 @@ class _ButtonMappingWidgetState extends State<ButtonMappingWidget> {
               ),
             ),
             const SizedBox(height: 10),
-            DropdownButton<ControllerButton>(
-              value: selectedAction,
+            DropdownButton<ButtonType>(
+              value: selectedButtonType,
               hint: const Text("Map Action"),
-              items: ControllerButton.values.map((value) {
+              items: ButtonType.values.map((value) {
                 if (widget.button == value) {
                   return DropdownMenuItem(
                     value: value,
@@ -56,7 +56,7 @@ class _ButtonMappingWidgetState extends State<ButtonMappingWidget> {
               }).toList(),
               onChanged: (value) {
                 setState(() {
-                  selectedAction = value;
+                  selectedButtonType = value;
                 });
               },
             ),

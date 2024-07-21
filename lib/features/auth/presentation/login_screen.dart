@@ -1,4 +1,6 @@
+import 'package:blue_controller_companion/common/provider/dio_client.dart';
 import 'package:blue_controller_companion/extensions/build_context_extension.dart';
+import 'package:blue_controller_companion/features/auth/data/provider/user_provider.dart';
 import 'package:blue_controller_companion/features/auth/data/repository/auth_repository.dart';
 import 'package:blue_controller_companion/features/auth/domain/login_input_model.dart';
 import 'package:blue_controller_companion/features/auth/presentation/widgets/login_form_card.dart';
@@ -77,7 +79,11 @@ class LoginScreen extends HookConsumerWidget {
       password: passwordController.text,
     );
     try {
-      await ref.read(authRepositoryProvider).signIn(loginInput: loginInput);
+      final user =
+          await ref.read(authRepositoryProvider).signIn(loginInput: loginInput);
+      final userId = user.id;
+      if (userId == null) throw Exception("No user");
+      final user1 = await ref.read(userProvider(id: userId).future);
       if (!context.mounted) return;
       const ControllerScreenRoute().go(context);
     } catch (e) {
