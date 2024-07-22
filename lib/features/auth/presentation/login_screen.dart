@@ -1,4 +1,3 @@
-import 'package:blue_controller_companion/common/provider/dio_client.dart';
 import 'package:blue_controller_companion/extensions/build_context_extension.dart';
 import 'package:blue_controller_companion/features/auth/data/provider/user_provider.dart';
 import 'package:blue_controller_companion/features/auth/data/repository/auth_repository.dart';
@@ -83,9 +82,9 @@ class LoginScreen extends HookConsumerWidget {
           await ref.read(authRepositoryProvider).signIn(loginInput: loginInput);
       final userId = user.id;
       if (userId == null) throw Exception("No user");
-      final user1 = await ref.read(userProvider(id: userId).future);
+      await ref.read(userProvider(id: userId).future);
       if (!context.mounted) return;
-      const ControllerScreenRoute().go(context);
+      const ControllerConfigurationListScreenRoute().go(context);
     } catch (e) {
       if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(

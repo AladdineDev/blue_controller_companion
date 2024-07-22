@@ -1,5 +1,7 @@
 import 'package:blue_controller_companion/common/provider/dio_client.dart';
 import 'package:blue_controller_companion/features/controller/data/data_source/remote_controller_data_source.dart';
+import 'package:blue_controller_companion/features/controller/domain/game_config_data_model.dart';
+import 'package:blue_controller_companion/features/controller/domain/game_config_list_model.dart';
 import 'package:blue_controller_companion/features/controller/domain/game_config_model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -23,11 +25,11 @@ class ControllerRepository {
     return await remoteControllerDataSource.createGameConfig(gameConfig);
   }
 
-  Future<List<GameConfig>> readGameConfigs() async {
+  Future<GameConfigList> readGameConfigs() async {
     return await remoteControllerDataSource.readGameConfigs();
   }
 
-  Future<GameConfig> readGameConfig(String id) async {
+  Future<GameConfigData> readGameConfig(String id) async {
     return await remoteControllerDataSource.readGameConfig(id);
   }
 

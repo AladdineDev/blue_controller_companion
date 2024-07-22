@@ -1,3 +1,5 @@
+import 'package:blue_controller_companion/features/controller/domain/game_config_data_model.dart';
+import 'package:blue_controller_companion/features/controller/domain/game_config_list_model.dart';
 import 'package:blue_controller_companion/features/controller/domain/game_config_model.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
@@ -15,10 +17,10 @@ abstract class RemoteControllerDataSource {
   );
 
   @GET("/game-config")
-  Future<List<GameConfig>> readGameConfigs();
+  Future<GameConfigList> readGameConfigs();
 
   @GET("/game-config/{id}")
-  Future<GameConfig> readGameConfig(
+  Future<GameConfigData> readGameConfig(
     @Path("id") String id,
   );
 

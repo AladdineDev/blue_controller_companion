@@ -9,14 +9,15 @@ enum ButtonType {
   R1(command: 0x6),
   L2(command: 0x7),
   R2(command: 0x8),
-  SELECT(command: 0x9),
-  START(command: 0xa),
+  SHARE(command: 0x9),
+  OPTIONS(command: 0xa),
   L3(command: 0xb),
   R3(command: 0xc),
   HAT_UP(command: 0xd),
   HAT_DOWN(command: 0xe),
   HAT_LEFT(command: 0xf),
-  HAT_RIGHT(command: 0x10);
+  HAT_RIGHT(command: 0x10),
+  ;
 
   const ButtonType({required this.command});
 

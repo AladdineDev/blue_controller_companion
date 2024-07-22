@@ -1,3 +1,4 @@
+import 'package:blue_controller_companion/features/controller/presentation/controller_list_screen.dart';
 import 'package:blue_controller_companion/features/controller/presentation/controller_screen.dart';
 import 'package:blue_controller_companion/features/auth/presentation/login_screen.dart';
 import 'package:flutter/material.dart';
@@ -11,19 +12,6 @@ GoRouter router(RouterRef ref) {
   return GoRouter(
     routes: $appRoutes,
     initialLocation: '/login',
-    // redirect: (context, state) async {
-    // TODO: Implement redirect
-    //   final authRepository = ref.watch(authRepositoryProvider);
-    //   if (state.path == "/login") {
-    //     try {
-    //       await authRepository.reSignIn();
-    //       return "/controllers";
-    //     } on LoginSessionExpired catch (_) {
-    //       return "/login";
-    //     }
-    //   }
-    //   return state.path;
-    // },
   );
 }
 
@@ -40,15 +28,34 @@ class LoginScreenRoute extends GoRouteData {
   }
 }
 
-@TypedGoRoute<ControllerScreenRoute>(
-  path: '/controller',
+@TypedGoRoute<ControllerConfigurationScreenRoute>(
+  path: '/controller-configuration/:controllerConfigurationId',
 )
 @immutable
-class ControllerScreenRoute extends GoRouteData {
-  const ControllerScreenRoute();
+class ControllerConfigurationScreenRoute extends GoRouteData {
+  const ControllerConfigurationScreenRoute({
+    required this.controllerConfigurationId,
+  });
+
+  final String controllerConfigurationId;
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const ControllerScreen();
+    return ControllerConfigurationScreen(
+      controllerConfigurationId: controllerConfigurationId,
+    );
+  }
+}
+
+@TypedGoRoute<ControllerConfigurationListScreenRoute>(
+  path: '/controller-configuration-list',
+)
+@immutable
+class ControllerConfigurationListScreenRoute extends GoRouteData {
+  const ControllerConfigurationListScreenRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) {
+    return const ControllerConfigurationListScreen();
   }
 }

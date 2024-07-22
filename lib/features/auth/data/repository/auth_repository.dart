@@ -32,7 +32,6 @@ class AuthRepository {
 
   Future<UserModel> signIn({required LoginInputModel loginInput}) async {
     final jwtResponse = await remoteAuthDataSource.login(loginInput);
-    print("jwtResponse: $jwtResponse");
     final jwt = jwtResponse.jwt;
     final user = jwtResponse.data;
     if (jwt == null) throw Exception("No jwt");
