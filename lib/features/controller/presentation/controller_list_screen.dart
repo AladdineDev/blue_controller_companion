@@ -13,6 +13,14 @@ class ControllerConfigurationListScreen extends HookConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Controller Configurations"),
+        actions: [
+          IconButton(
+            onPressed: () {
+              const ControllerConfigurationUploadScreenRoute().push(context);
+            },
+            icon: const Icon(Icons.upload),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
