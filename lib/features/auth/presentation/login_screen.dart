@@ -56,6 +56,13 @@ class LoginScreen extends HookConsumerWidget {
                         ),
                         child: const Text("Sign in"),
                       ),
+                      const SizedBox(height: 24),
+                      TextButton(
+                        onPressed: () {
+                          const SignUpScreenRoute().go(context);
+                        },
+                        child: const Text("Sign up"),
+                      ),
                     ],
                   ),
                 ),
@@ -67,7 +74,7 @@ class LoginScreen extends HookConsumerWidget {
     );
   }
 
-  _onSignInButtonPressed(
+  Future<void> _onSignInButtonPressed(
     BuildContext context,
     WidgetRef ref, {
     required TextEditingController emailController,
@@ -89,6 +96,7 @@ class LoginScreen extends HookConsumerWidget {
       if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
+          showCloseIcon: true,
           content: Text(e.toString()),
         ),
       );

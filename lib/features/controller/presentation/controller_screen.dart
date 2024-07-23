@@ -93,6 +93,7 @@ class _ControllerConfigurationScreenState
                       context.pop();
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
+                          showCloseIcon: true,
                           content: Text('Configuration saved successfully'),
                         ),
                       );
@@ -101,6 +102,7 @@ class _ControllerConfigurationScreenState
                     if (context.mounted) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
+                          showCloseIcon: true,
                           content: Text('Failed to save configuration: $error'),
                         ),
                       );
