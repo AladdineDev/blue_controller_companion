@@ -52,6 +52,7 @@ class _ControllerConfigurationUploadButtonState
     _device = device;
 
     if (!context.mounted) return;
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Connected to ESP32')),
     );
@@ -59,7 +60,7 @@ class _ControllerConfigurationUploadButtonState
     List<BluetoothService> services = await device.discoverServices();
     for (var service in services) {
       for (var characteristic in service.characteristics) {
-        if (characteristic.properties.write) {
+        if (characteristic.uuid.str == "beb5483e-36e1-4688-b7f5-ea07361b26a8") {
           _characteristic = characteristic;
         }
       }
@@ -70,12 +71,13 @@ class _ControllerConfigurationUploadButtonState
       _sendConfig(jwt);
     } else {
       if (!context.mounted) return;
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('No JWT found')),
       );
     }
 
-    _device?.disconnect();
+    // await _device?.disconnect();
   }
 
   void _sendConfig(String config) async {
