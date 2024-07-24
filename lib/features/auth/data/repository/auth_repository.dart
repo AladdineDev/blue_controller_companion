@@ -48,8 +48,4 @@ class AuthRepository {
     ]);
     ref.invalidateSelf();
   }
-
-  Future<UserModel> readUser({required String id}) async {
-    return remoteAuthDataSource.readUser(id);
-  }
 }

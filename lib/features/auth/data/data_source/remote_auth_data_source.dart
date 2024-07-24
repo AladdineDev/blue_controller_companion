@@ -18,7 +18,9 @@ abstract class RemoteAuthDataSource {
   Future<JwtResponseModel> login(@Body() LoginInputModel loginInputModel);
 
   @POST("/user")
-  Future<UserModel> createUser(@Body() UserCredentialModel userCredentialModel);
+  Future<JwtResponseModel> createUser(
+    @Body() UserCredentialModel userCredentialModel,
+  );
 
   @GET("/user/{id}")
   Future<UserModel> readUser(@Path("id") String id);
