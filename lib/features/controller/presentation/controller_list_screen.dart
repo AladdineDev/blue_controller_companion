@@ -1,5 +1,6 @@
 import 'package:blue_controller_companion/common/widgets/spinner.dart';
 import 'package:blue_controller_companion/features/controller/data/provider/controller_provider.dart';
+import 'package:blue_controller_companion/features/controller/presentation/controller_configuration_upload_button.dart.dart';
 import 'package:blue_controller_companion/features/controller/presentation/widgets/controller_configuration_creation_dialog.dart';
 import 'package:blue_controller_companion/router/router.dart';
 import 'package:flutter/material.dart';
@@ -13,13 +14,8 @@ class ControllerConfigurationListScreen extends HookConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Controller Configurations"),
-        actions: [
-          IconButton(
-            onPressed: () {
-              const ControllerConfigurationUploadScreenRoute().push(context);
-            },
-            icon: const Icon(Icons.upload),
-          ),
+        actions: const [
+          ControllerConfigurationUploadButton(),
         ],
       ),
       floatingActionButton: FloatingActionButton(

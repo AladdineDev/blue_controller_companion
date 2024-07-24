@@ -1,4 +1,3 @@
-import 'package:blue_controller_companion/features/controller/presentation/controller_configuration_upload_screen.dart';
 import 'package:blue_controller_companion/features/auth/presentation/sign_up_screen.dart';
 import 'package:blue_controller_companion/features/controller/presentation/controller_list_screen.dart';
 import 'package:blue_controller_companion/features/controller/presentation/controller_screen.dart';
@@ -13,7 +12,7 @@ part 'router.g.dart';
 GoRouter router(RouterRef ref) {
   return GoRouter(
     routes: $appRoutes,
-    initialLocation: '/controller-configuration-upload',
+    initialLocation: '/login',
   );
 }
 
@@ -72,18 +71,5 @@ class ControllerConfigurationListScreenRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) {
     return const ControllerConfigurationListScreen();
-  }
-}
-
-@TypedGoRoute<ControllerConfigurationUploadScreenRoute>(
-  path: '/controller-configuration-upload',
-)
-@immutable
-class ControllerConfigurationUploadScreenRoute extends GoRouteData {
-  const ControllerConfigurationUploadScreenRoute();
-
-  @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return const ControllerConfigurationUploadScreen();
   }
 }
